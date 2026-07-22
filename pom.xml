@@ -200,6 +200,17 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<!-- Testcontainers' bundled docker-java falls back to API 1.32 when
+					     unset, which newer Docker Engine releases (min 1.40+) reject. -->
+					<systemPropertyVariables>
+						<api.version>1.41</api.version>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
