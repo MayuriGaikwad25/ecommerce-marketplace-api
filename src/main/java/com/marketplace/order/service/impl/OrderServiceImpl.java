@@ -110,6 +110,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public OrderResponse getById(String customerEmail, String orderId) {
         User customer = findUser(customerEmail);
         Order order = orderRepository
@@ -120,6 +121,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public PageResponse<OrderResponse> listMyOrders(String customerEmail, Pageable pageable) {
         User customer = findUser(customerEmail);
         Page<OrderResponse> page = orderRepository.findAllByUserId(customer.getId(), pageable).map(this::toResponse);
@@ -127,6 +129,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public PageResponse<VendorOrderItemResponse> listOrderItemsForVendor(String vendorEmail, Pageable pageable) {
         User vendor = findUser(vendorEmail);
         Page<VendorOrderItemResponse> page = orderItemRepository
@@ -143,6 +146,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public PageResponse<OrderResponse> listAllOrders(Pageable pageable) {
         return PageResponse.from(orderRepository.findAll(pageable).map(this::toResponse));
     }

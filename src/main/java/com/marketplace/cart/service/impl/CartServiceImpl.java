@@ -29,6 +29,7 @@ public class CartServiceImpl implements CartService {
     private final UserRepository userRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public CartResponse getCart(String customerEmail) {
         return toResponse(getOrCreateCart(customerEmail));
     }

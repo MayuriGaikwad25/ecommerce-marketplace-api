@@ -57,11 +57,13 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public ProductResponse getById(String id) {
         return productMapper.toResponse(findProduct(id));
     }
 
     @Override
+    @Transactional(readOnly = true)
     public PageResponse<ProductResponse> search(
             String categoryId, BigDecimal minPrice, BigDecimal maxPrice, Pageable pageable) {
         Specification<Product> spec = Specification.allOf(
@@ -103,6 +105,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public PageResponse<ProductResponse> listMyProducts(String vendorEmail, Pageable pageable) {
         User vendor = findVendor(vendorEmail);
         Page<ProductResponse> page =
