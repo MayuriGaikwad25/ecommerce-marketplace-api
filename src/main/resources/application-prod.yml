@@ -1,0 +1,10 @@
+jwt:
+  secret: ${JWT_SECRET}
+
+admin:
+  seed:
+    password: ${ADMIN_SEED_PASSWORD}
+
+logging:
+  level:
+    com.marketplace: INFO
