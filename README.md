@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/MayuriGaikwad25/ecommerce-marketplace-api/actions/workflows/ci.yml/badge.svg)](https://github.com/MayuriGaikwad25/ecommerce-marketplace-api/actions/workflows/ci.yml)
 
+**Live demo:** https://ecommerce-marketplace-api-production.up.railway.app/swagger-ui/index.html
+
 A multi-vendor e-commerce marketplace backend (think a mini Noon.com) built with Spring Boot 3 and Java 21. Vendors list products under a category tree, customers browse, cart, and check out; checkout is stock-safe under concurrent load.
 
 ## Highlight: stock-safe checkout under concurrency
@@ -175,6 +177,6 @@ src/main/java/com/marketplace/
 - [x] Phase 7: containerize the app itself (multi-stage Docker build)
 - [x] Phase 8: CI (GitHub Actions), secrets hardening for a `prod` profile
 - [x] Phase 9: portfolio packaging (this README, ER/architecture diagrams, Postman collection)
-- [ ] Live deployment (Railway) — deferred
+- [x] Live deployment (Railway)
 - [ ] Microservices split (Spring Cloud: Eureka, Gateway, Config Server, OpenFeign, Resilience4j)
 - [ ] Spring AI-powered product search/recommendations
